@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: argocd
+spec:
+  controller:
+    processors:
+      operation: 20
+      status: 20
+    resources: 
+      requests:
+        cpu: 1
+        memory: 1Gi
+      limits:
+        cpu: 2
+        memory: 3Gi
+  dex:
+    openShiftOAuth: true
+  server:
+    route: 
+      enabled: true
+  rbac:
+    defaultPolicy: 'role:readonly'
+    policy: |
+      g, argocdadmins, role:admin
+    scopes: '[groups]'
+  version: v1.7.10
