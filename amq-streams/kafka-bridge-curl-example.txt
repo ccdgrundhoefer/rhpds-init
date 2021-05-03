@@ -1,0 +1,39 @@
+# write to topic as producer
+curl -X POST \
+  http://kafkabridge-ocp-streams.apps.cluster-13c1.13c1.sandbox76.opentlc.com/topics/my-topic \
+  -H 'content-type: application/vnd.kafka.json.v2+json' \
+  -d '{
+    "records": [
+        {
+            "key": "hello",
+            "value": "world"
+        },
+        {
+            "key": "key-2",
+            "value": "value-2"
+        }
+    ]
+}'
+
+# setup a consumer
+curl -X POST http://kafkabridge-ocp-streams.apps.cluster-13c1.13c1.sandbox76.opentlc.com/consumers/my-group \
+  -H 'content-type: application/vnd.kafka.v2+json' \
+  -d '{
+    "name": "my-consumer",
+    "format": "json",
+    "auto.offset.reset": "earliest",
+    "enable.auto.commit": false
+  }'
+
+# subscribe to a topic
+curl -X POST http://kafkabridge-ocp-streams.apps.cluster-13c1.13c1.sandbox76.opentlc.com:80/consumers/my-group/instances/my-consumer/subscription \
+  -H 'content-type: application/vnd.kafka.v2+json' \
+  -d '{
+    "topics": [
+        "my-topic"
+    ]
+}'
+
+# cosume messages
+curl -X GET http://kafkabridge-ocp-streams.apps.cluster-13c1.13c1.sandbox76.opentlc.com:80/consumers/my-group/instances/my-consumer/records \
+  -H 'accept: application/vnd.kafka.json.v2+json'
