@@ -23,5 +23,6 @@ spec:
     defaultPolicy: 'role:readonly'
     policy: |
       g, argocdadmins, role:admin
+      g, pipeline, role:admin
     scopes: '[groups]'
   version: v1.7.10
