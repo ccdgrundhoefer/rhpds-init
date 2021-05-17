@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: sync-app-
+spec:
+  pipelineRef:
+    name: argocd-pipeline
+  serviceAccountName: pipeline
+  params:
+    - name: application-name
+      value: monitoring
