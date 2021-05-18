@@ -11,7 +11,7 @@ data:
          storageClassName: gp2-csi
          resources:
            requests:
-             storage: 1Gi
+             storage: 10Gi
       retention: 7d
       resources:
         requests:
