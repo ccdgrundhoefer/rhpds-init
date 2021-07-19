@@ -3,6 +3,14 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
+  resourceExclusions: |
+    - apiGroups:
+      - "*"
+      kinds:
+      - "PipelineRun"
+      - "TaskRun"
+      clusters:
+      - "*"
   controller:
     processors:
       operation: 20
