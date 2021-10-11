@@ -33,4 +33,4 @@ spec:
       g, argocdadmins, role:admin
       g, pipeline, role:admin
     scopes: '[groups]'
-  version: v2.0.4
+  version: v2.1.3
