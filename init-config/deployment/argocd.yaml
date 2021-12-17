@@ -10,5 +10,5 @@ spec:
   project: default
   source:
     path: init-config/argocd
-    repoURL: https://gitlab.gsclabs.cc/dgrundho/rhpds-init.git
+    repoURL: https://github.com/ccdgrundhoefer/rhpds-init.git
     targetRevision: master
