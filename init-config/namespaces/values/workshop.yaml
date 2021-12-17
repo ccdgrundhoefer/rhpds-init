@@ -9,5 +9,3 @@ users:
   - user7
 projects:
   - hello-world
-  - nginx
-  - test
