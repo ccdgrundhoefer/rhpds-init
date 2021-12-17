@@ -13,4 +13,6 @@ spec:
     repoURL: git@github.com:ccdgrundhoefer/rhpds-init.git
     targetRevision: master
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated: {}

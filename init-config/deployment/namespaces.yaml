@@ -16,4 +16,6 @@ spec:
         - ../values/workshop.yaml
     targetRevision: master
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated: {}
