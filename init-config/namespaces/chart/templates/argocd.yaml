@@ -2,6 +2,7 @@
 {{- $user := . -}}
 {{- range $.Values.projects -}}
 {{- $project := printf "%v-%v" $user . -}}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
