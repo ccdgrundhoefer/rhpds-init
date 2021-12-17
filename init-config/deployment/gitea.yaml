@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitea
+  namespace: argocd
+spec:
+  destination:
+    namespace: gitea
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: init-config/gitea
+    repoURL: https://github.com/ccdgrundhoefer/rhpds-init.git
+    targetRevision: master
+  syncPolicy:
+    automated: {}
