@@ -30,5 +30,15 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: {{ $user }}
+---
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: {{ $project }}-ogroup
+  namespace: {{ $project }}
+spec:
+  targetNamespaces:
 {{ end }}
 {{ end }}
