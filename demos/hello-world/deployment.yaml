@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-world
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: hello-world
@@ -17,11 +17,11 @@ spec:
       containers:
       - name: hello-world
         image: ubuntu:20.04
-        command: ["/bin/bash", "-ec", "while :; do echo 'Hello World 2'; sleep 5 ; done"]
+        command: ["/bin/bash", "-ec", "while :; do echo 'Hello World'; sleep 5 ; done"]
         resources:
           requests:
             cpu: 50m
             memory: 10Mi
           limits:
-            cpu: 500
+            cpu: 500m
             memory: 100Mi

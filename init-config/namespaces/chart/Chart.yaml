@@ -1,0 +1,5 @@
+apiVersion: v2
+name: setup-namespaces
+description: setup namespaces for a rhpds workshop
+
+version: 0.0.1

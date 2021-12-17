@@ -1,0 +1,13 @@
+users:
+  - opentlc-mgr
+  - user1
+  - user2
+  - user3
+  - user4
+  - user5
+  - user6
+  - user7
+projects:
+  - hello-world
+  - nginx
+  - test

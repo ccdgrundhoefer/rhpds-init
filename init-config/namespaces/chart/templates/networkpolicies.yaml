@@ -1,0 +1,53 @@
+{{- range $.Values.users }}
+{{- $user := . -}}
+{{- range $.Values.projects -}}
+{{- $project := printf "%v-%v" $user . -}}
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: allow-from-openshift-ingress
+  namespace: {{ $project }}
+spec:
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          network.openshift.io/policy-group: ingress
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: allow-from-openshift-monitoring
+  namespace: {{ $project }}
+spec:
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          network.openshift.io/policy-group: monitoring
+  podSelector: {}
+  policyTypes:
+  - Ingress
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+  name: allow-same-namespace
+  namespace: {{ $project }}
+spec:
+  podSelector: {}
+  ingress:
+  - from:
+    - podSelector: {}
+{{ end }}
+{{ end }}

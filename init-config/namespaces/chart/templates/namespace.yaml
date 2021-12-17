@@ -1,0 +1,34 @@
+{{- range $.Values.users }}
+{{- $user := . -}}
+{{- range $.Values.projects -}}
+{{- $project := printf "%v-%v" $user . -}}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  labels:
+    zone: high
+  name: {{ $project }}
+spec:
+  finalizers:
+  - kubernetes
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+  name: {{ $user }}-admin
+  namespace: {{ $project }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: {{ $user }}
+{{ end }}
+{{ end }}
