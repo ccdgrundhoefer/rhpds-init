@@ -1,6 +1,8 @@
 apiVersion: gpte.opentlc.com/v1
 kind: Gitea
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
   name: repository
 spec:
   giteaImageTag: latest
