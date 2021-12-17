@@ -12,3 +12,5 @@ spec:
     path: init-config/argocd
     repoURL: https://github.com/ccdgrundhoefer/rhpds-init.git
     targetRevision: master
+  syncPolicy:
+    automated: {}
