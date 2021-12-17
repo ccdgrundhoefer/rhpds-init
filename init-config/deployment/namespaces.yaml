@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: init-config/namespces
+    path: init-config/namespaces
     repoURL: git@github.com:ccdgrundhoefer/rhpds-init.git
     helm:
       valueFiles:
