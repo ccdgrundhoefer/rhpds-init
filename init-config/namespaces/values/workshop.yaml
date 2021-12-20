@@ -7,5 +7,7 @@ users:
   - user5
   - user6
   - user7
+  - user8
+  - user9
 projects:
   - hello-world
