@@ -40,5 +40,6 @@ metadata:
   namespace: {{ $project }}
 spec:
   targetNamespaces:
+    - {{ $project }}
 {{ end }}
 {{ end }}
