@@ -12,10 +12,6 @@ metadata:
   namespace: {{ $project }}
 spec:
   channel: alpha
-  config:
-    env:
-      - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
-        value: argocd
   installPlanApproval: Automatic
   name: argocd-operator
   source: community-operators
