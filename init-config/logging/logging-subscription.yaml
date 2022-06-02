@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
-  channel: "stable-5.4" 
+  channel: "stable" 
   name: cluster-logging
   source: redhat-operators 
   sourceNamespace: openshift-marketplace
