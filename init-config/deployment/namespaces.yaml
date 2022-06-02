@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: init-config/namespaces/chart
-    repoURL: git@github.com:ccdgrundhoefer/rhpds-init.git
+    repoURL: https://github.com/ccdgrundhoefer/rhpds-init.git
     helm:
       valueFiles:
         - ../values/workshop.yaml

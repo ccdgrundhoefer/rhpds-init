@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     path: init-config/gitea
-    repoURL: git@github.com:ccdgrundhoefer/rhpds-init.git
+    repoURL: https://github.com/ccdgrundhoefer/rhpds-init.git
     targetRevision: master
   syncPolicy:
     syncOptions:
