@@ -38,9 +38,9 @@ spec:
   rbac:
     defaultPolicy: 'role:readonly'
     policy: |
-      g, argocdadmins, role:admin
+      g, system:authenticated, role:admin
       g, pipeline, role:admin
     scopes: '[groups]'
-  version: v2.1.3
+  version: v2.3.4
 {{ end }}
 {{ end }}
